@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">  
+				
+	<bean id="userInfoManager" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+		<property name="serviceUrl" value="${rmi.manager}/userInfoManager"/>
+		<property name="serviceInterface" value="com.ddjf.wechat.modules.mini.manager.UserInfoManager"/>
+		<property name="refreshStubOnConnectFailure">
+        	<value>true</value>
+        </property>
+        <property name="lookupStubOnStartup"> 
+     		<value>false</value> 
+  		</property>
+	</bean>
+	
+	<bean id="bpmsManager" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+        <property name="serviceUrl" value="${rmi.manager}/bpmsManager"/>
+        <property name="serviceInterface" value="com.ddjf.wechat.modules.bpms.manager.BpmsManager"/>
+        <property name="refreshStubOnConnectFailure">
+            <value>true</value>
+        </property>
+        <property name="lookupStubOnStartup"> 
+            <value>false</value> 
+        </property>
+    </bean>
+    
+    <bean id="creditInfoManager" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+        <property name="serviceUrl" value="${rmi.manager}/creditInfoManager"/>
+        <property name="serviceInterface" value="com.ddjf.wechat.modules.mini.manager.CreditInfoManager"/>
+        <property name="refreshStubOnConnectFailure">
+            <value>true</value>
+        </property>
+        <property name="lookupStubOnStartup"> 
+            <value>false</value> 
+        </property>
+    </bean>
+
+</beans>
